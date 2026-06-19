@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blogoliveda9.github.io/msite-leyu-com-cn/sitemap.xml
