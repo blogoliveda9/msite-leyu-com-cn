@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悟空体育 · 日常查询与对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f9f6f0;
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Georgia", "Times New Roman", serif;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            background: rgba(255, 252, 246, 0.7);
+            border-radius: 20px;
+            padding: 2.2rem 2rem 3rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+
+        /* 导航 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 1.2rem 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e2dbcf;
+            font-size: 0.95rem;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: #5b4f3e;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+        .top-nav a:hover {
+            color: #a8835c;
+        }
+        .top-nav .brand {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #3d362d;
+            margin-right: auto;
+        }
+
+        /* 标题 */
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 450;
+            color: #2c2b28;
+            letter-spacing: 0.01em;
+            margin: 0.5rem 0 1rem;
+            line-height: 1.3;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #7a7062;
+            margin-bottom: 2rem;
+            border-left: 3px solid #d6cdbe;
+            padding-left: 1rem;
+        }
+
+        /* 正文段落 */
+        p {
+            margin-bottom: 1.4rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        /* 引用块 */
+        .insight {
+            background: #ede7dd;
+            padding: 1.2rem 1.6rem;
+            border-radius: 12px;
+            margin: 1.8rem 0;
+            font-style: normal;
+            border-left: 5px solid #b8a992;
+            color: #3f3a32;
+            font-size: 0.95rem;
+        }
+        .insight strong {
+            font-weight: 600;
+            color: #2f2a22;
+        }
+
+        /* 提示框 */
+        .hint-box {
+            background: #f2ede4;
+            border: 1px solid #ddd5c8;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            font-size: 0.93rem;
+            color: #3f3a32;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .hint-box span.label {
+            display: inline-block;
+            font-weight: 600;
+            background: #d8cfbe;
+            color: #2f2a22;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            letter-spacing: 0.03em;
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* 三个场景模块 */
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+        .scene-card {
+            flex: 1 1 200px;
+            min-width: 180px;
+            background: #fcf9f4;
+            border-radius: 18px;
+            padding: 1.5rem 1.2rem 1.3rem;
+            border: 1px solid #e7dfd3;
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.01em;
+            color: #4b4237;
+        }
+        .scene-card p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            color: #555049;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2.5rem 0 1rem;
+            border-top: 1px dashed #d6cdbe;
+            padding-top: 2rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #4b4237;
+        }
+        .faq-item .a {
+            padding-left: 1.2rem;
+            color: #5f584d;
+            font-size: 0.93rem;
+            margin-top: 0.2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2dbcf;
+            margin: 2rem 0;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #8b8273;
+            margin-top: 2.2rem;
+            letter-spacing: 0.02em;
+            border-top: 1px solid #eae3d7;
+            padding-top: 1.8rem;
+        }
+
+        a {
+            color: #8b6f4f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cfc0ad;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #5f4a32;
+            text-decoration-color: #a8835c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .top-nav {
+                font-size: 0.85rem;
+                gap: 0.8rem 1.2rem;
+            }
+            .scene-card {
+                flex: 1 1 100%;
+            }
+            .insight {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="brand">⛰️ 悟空体育 · 日常</span>
+        <a href="#">对照</a>
+        <a href="#">延伸</a>
+        <a href="#">场景</a>
+        <a href="#">说明</a>
+    </nav>
+
+    <!-- 核心介绍 -->
+    <h1>从一次查询说起</h1>
+    <div class="subhead">不是每一次打开都需要目的，有时只是想随手翻翻对照一下</div>
+
+    <p>
+        很多人习惯在空闲时打开 <a href="https://zhc-wukong.com">悟空体育</a>，并不是为了追逐某一条即时资讯，而是想看看最近有哪些动态值得留意。页面上的信息排列得比较有条理，从赛事进程到数据摘要，基本扫一眼就能知道个大概。久而久之，这变成了一个类似「日常查询」的动作——不费力，但心里有数。
+    </p>
+
+    <!-- 引用块 -->
+    <div class="insight">
+        <strong>一个读者的感受：</strong> 体育类信息最怕杂乱无章。这里的内容密度刚刚好，既有赛果又有背景，适合那种「想了解但不想深究」的时刻。
+    </div>
+
+    <p>
+        当然，也会有人习惯把 <a href="https://zhc-wukong.com">悟空体育</a> 当作一个对照的起点。比如看完一场比赛后，再回头翻翻之前的记录、数据变化或者评论角度，往往能发现一些直播时没注意到的细节。这种延伸阅读的节奏，比单纯刷新闻要踏实一些。
+    </p>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>📋 日常参照</h3>
+            <p>打开页面快速浏览近期赛程与结果，不需要登录或复杂操作。适合早晨或午休时随手翻一翻，保持对动态的基本感知。</p>
+        </div>
+        <div class="scene-card">
+            <h3>🔍 赛后对照</h3>
+            <p>比赛结束后回头比对数据、阵容或回顾文章，把碎片信息串联成自己的理解。很多细节在第二遍看的时候才浮现。</p>
+        </div>
+        <div class="scene-card">
+            <h3>📎 延伸线索</h3>
+            <p>从一条短讯出发，顺藤摸瓜找到相关专题或历史记录。适合对某个话题产生好奇时，不慌不忙地往下读。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 -->
+    <div class="hint-box">
+        <span class="label">提示</span> 如果你只是想确认某个队伍最近的走势，或者对比两场比赛的数据，直接在 <a href="https://zhc-wukong.com">悟空体育</a> 里搜索关键词往往比翻社交网络更快。页面结构偏静态，加载流畅，不容易被打断。
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="q">— 需要用账号登录才能看吗？</div>
+            <div class="a">大部分内容直接可见，没有强制注册。部分个性化功能（如收藏）可能需要简单登记，不影响日常浏览。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">— 更新频率大概怎样？</div>
+            <div class="a">赛事密集期基本实时，平时每天会有几次内容补充。没有固定的“发稿时间”，但不会长时间停滞。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">— 页面上的数据来源可靠吗？</div>
+            <div class="a">所有数据均标注来源或经过交叉核对，可作为一般性参考。如需精确统计，建议与官方原始记录对照。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <p style="font-size: 0.93rem; color: #5f584d;">
+        在信息过载的年代，一个能让人安静下来慢慢对照的站点并不多。如果你也习惯在碎片时间里保持一点延伸阅读，不妨把 <a href="https://zhc-wukong.com">悟空体育</a> 放在书签里。它不喧哗，但够用。
+    </p>
+
+    <div class="footnote">
+        悟空体育 · 日常查询与对照 · 以阅读为起点
+    </div>
+</div>
+</body>
+</html>
